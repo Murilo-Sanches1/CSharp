@@ -15,6 +15,7 @@
         Numbers();
         Types();
         TryCatch();
+        Expressions();
     }
 
     private static void Strings()
@@ -75,6 +76,43 @@
     {
         Console.ForegroundColor = ConsoleColor.Red;
 
+        // + readonly struct System.Boolean Represents a Boolean (true or false) value.
+        // * bool
+
+        // + readonly struct System.Char Represents a character as a UTF-16 code unit.
+        // ! 'c' Aspas simples criam um objeto char
+        // * char
+
+        // + readonly struct System.Byte Represents an 8-bit unsigned integer.
+        // ! unsigned = não representa números negativos
+        // ! 8-bit guarda um valor de 0 a 255
+        // * byte
+
+        // + readonly struct System.Int32 Represents a 32-bit signed integer.
+        // ! signed = representa números negativos
+        // ! 32-bit guarda 0 até 4294967295, ou de −2147483648 até 2147483647
+        // * int
+
+        // + readonly struct System.Int64 Represents a 64-bit signed integer.
+        // ! 64-bit mano isso é absurdamente grande
+        // * long
+
+        // + readonly struct System.Single Represents a single-precision floating-point number.
+        // ! números quebrados
+        // * float
+
+        // + readonly struct System.Double Represents a double-precision floating-point number.
+        // ! números quebrados com duas vezes mais precisão do que o float
+        // * double
+
+        // + readonly struct System.Decimal Represents a decimal floating-point number.
+        // ! muito mais preciso do que os outros. Sempre representar moedas usando esse tipo
+        // * decimal
+
+        // + class System.String Represents text as a sequence of UTF-16 code units.
+        // ! "string" aspas duplas criam um objeto do tipo string
+        // * string
+
         if (typeof(char).IsPrimitive)
         {
             Console.WriteLine("Tipo char é primitivo");
@@ -114,10 +152,10 @@
         Console.WriteLine();
 
         // ! acessando uma propriedade atráves de uma classe transforma em refêrencia de memória
-        MemoryReferency xis = new MemoryReferency();
+        MemoryReferency<int> xis = new MemoryReferency<int>();
         xis.x = 100;
         // + yis.x é igual a xis (memory reference)
-        MemoryReferency yis = xis;
+        MemoryReferency<int> yis = xis;
         // + xis.x ainda tem o valor 100
         Console.WriteLine($"{xis.x} : {yis.x}");
         // + yis.x é igual a 1
@@ -163,10 +201,51 @@
             Console.WriteLine(exception.StackTrace);
         }
     }
+
+    public static void Expressions()
+    {
+        // + isso são expressions, ao contrario de statments, expressions retornam um resultado
+        // * iniciei "a" do tipo byte vazia e criei uma variável "b" que é igual ao valor da expressão
+        // * no caso b é igual a variável "a" que é igual a 10, podemos escrever desse jeito porque
+        // * para iniciar uma variavel o compilador espera uma expressão e a = 10 é uma expressão e retorna 10 
+        byte a;
+        byte b = a = 10; // + operador de atribuição binário
+        // * b sozinho é um statment e b++ é uma expression, então b é ao mesmo tempo os dois,
+        // * métodos também são os dois ao mesmo tempo e atribuição simples que é o exemplo acima, b = a = 10
+        b++; // + Operador de atribuição unário
+
+        byte x = 1;
+        int y;
+        y = x == 1 ? 5 : 10; // + Operador ternário
+
+        System.Console.WriteLine();
+        // * System.Console - System é um namespace, namespace são uma forma de organizar o código de maneira lógica,
+        // * a lógica é parecida com pastas, porém pastas são organizações físicas e namespaces de maneira lógica
+        // * fogão e geladeira poderiam ser agrupadas lógicamente por uma namespace Cozinha por exemplo
+        // + public static class Console - Console é uma clase static, então não é possível criar um objeto a partir dela,
+        // + new Console() = Errado, como a classe é static, todos os seus membors tem que ser static também
+
+        // * C# é orientado a objetos, em princípio, tudo são objetos e objetos são instâncias de uma classe
+        // * quando escrevemos Console estamos acessando a classe e com o ponto acessamos os métodos dessa classe
+        // * Console.WriteLine("expression");
+        // + Como tudo são objetos, podemos ter métodos em strings por exemplo, porque toda string é um objeto
+        Console.WriteLine("Tamanho da frase: " + "Objeto do tipo String e estou acessando o método length".Length);
+        // * Quando fazemos "palavra".<Método> estamos tendo acesso aos métodos de instância da classe String
+        // * mas classes não estáticas podem ter membros estáticos, por exemplo string.Create Z string.Equals
+    }
+
+    public static void Delegates()
+    {
+        // + Delegate
+        // - It is a reference type.
+        // - It is a function pointer or it holds a reference (pointer) to a function (method).
+        // - It is type safe.
+        // - Delegates are mainly used for the event handling and the callback methods.
+    }
 }
 
-public class MemoryReferency
+public class MemoryReferency<T>
 {
-    public int x;
+    public T? x;
 }
 
