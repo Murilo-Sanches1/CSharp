@@ -1,4 +1,5 @@
 ﻿using System;
+using Sharp.Extensions;
 
 namespace Sharp
 {
@@ -8,6 +9,9 @@ namespace Sharp
         {
             Console.WriteLine("Hello, World!");
             int number = 1;
+            Console.WriteLine(number.IsEven());
+            number = 2;
+            Console.WriteLine(number.IsEven());
         }
     }
 }
