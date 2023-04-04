@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Programação\\CS\\basics\\basics.csproj": {}
+    "C:\\programming\\CS\\sharp\\sharp.csproj": {}
   },
   "projects": {
-    "C:\\Programação\\CS\\basics\\basics.csproj": {
+    "C:\\programming\\CS\\sharp\\sharp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Programação\\CS\\basics\\basics.csproj",
-        "projectName": "basics",
-        "projectPath": "C:\\Programação\\CS\\basics\\basics.csproj",
+        "projectUniqueName": "C:\\programming\\CS\\sharp\\sharp.csproj",
+        "projectName": "sharp",
+        "projectPath": "C:\\programming\\CS\\sharp\\sharp.csproj",
         "packagesPath": "C:\\Users\\sanch\\.nuget\\packages\\",
-        "outputPath": "C:\\Programação\\CS\\basics\\obj\\",
+        "outputPath": "C:\\programming\\CS\\sharp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\sanch\\AppData\\Roaming\\NuGet\\NuGet.Config",
