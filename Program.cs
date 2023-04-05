@@ -11,7 +11,9 @@ namespace Sharp
             int number = 1;
             Console.WriteLine(number.IsEven());
             number = 2;
+
             Console.WriteLine(number.IsEven());
+            Console.WriteLine((50).IsEven());
         }
     }
 }
