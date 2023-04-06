@@ -34,10 +34,33 @@ namespace Sharp
             string value = "";
             Console.WriteLine($"{(dict.TryGetValue("nonexistent", out value) ? "Existe" : "Inexistente")}");
 
-            foreach (KeyValuePair<string, string> kvp in dict)
+            DictionaryLogger<string, string>(dict: dict, color: ConsoleColor.Green);
+
+            var initDict = new Dictionary<int, string>() { { 1, "Murilo" }, { 2, "Sanches" } };
+            DictionaryLogger<int, string>(initDict);
+
+            initDict.Clear();
+
+            DictionaryLogger<int, string>(initDict);
+
+            var sortedDict = new SortedDictionary<int, string>() { { 5, "cinco" }, { 1, "um" } };
+            DictionaryLogger<int, string>(sortedDict);
+        }
+
+        public static void DictionaryLogger<Key, Value>(
+            IDictionary<Key, Value> dict,
+            ConsoleColor color = ConsoleColor.Red)
+        {
+            if (dict.Count == 0) return;
+
+            Console.ForegroundColor = color;
+            Console.WriteLine("====================================");
+            foreach (KeyValuePair<Key, Value> item in dict)
             {
-                Console.WriteLine($"{kvp.Key} - {kvp.Value}");
+                Console.WriteLine($"{item.Key} - {item.Value}");
             }
+            Console.WriteLine("====================================");
+            Console.ResetColor();
         }
     }
 }
