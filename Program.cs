@@ -16,7 +16,7 @@ namespace Sharp
             Console.WriteLine(number.IsEven());
             Console.WriteLine((50).IsEven());
 
-            Dictionary<String, string> dict = new Dictionary<string, string>();
+            Dictionary<string, string> dict = new Dictionary<string, string>();
             dict.Add("key", "value");
             try
             {
