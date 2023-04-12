@@ -8,7 +8,7 @@ namespace Sharp
     {
         private static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            Console.WriteLine("Hello World!");
             int number = 1;
             Console.WriteLine(number.IsEven());
             number = 2;
